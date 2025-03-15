@@ -171,3 +171,13 @@ Before creating your Terraform and ECS deployment pipeline make sure to create a
 3. For "Image tag mutability" keep the "Mutable" option selected
 4. For "Encryption" choose AWS KMS -> AWS managed key.
 5. Click on "Create"
+
+# Running the pipelines
+After you've finished configuring the three pipelies, you should be able to run both the sub-pipelines (Terraform and ECS Deployment) on their own, as well as the main "NodeJs App" pipeline. In any case, afther the "ECS deployment" pipeline has finished running you will be able to access the task running on Fargate, and to access it make note of the task public IPv4 (x.x.x.x).
+
+To do this replace the "x" on the following link with the IP address and you sould be able to see our good old friend "Hello world!"
+
+`http://ec2-x-x-x-x.us-west-1.compute.amazonaws.com:8080/`
+
+## For the the future
+A good improvement to be made on this project would be to implement the Application Load Balancer to avoid having to dig in the AWS console to find the IP and instead redirect to it via a Route 53.
